@@ -292,5 +292,20 @@ public class CodeWars {
 		Arrays.sort(list);
 		return list[list.length - 1];
 	}
+	
+	
+	// get sum of multiplies of 3 and 5 in a number
+	public static int divisibleByThreeOrFive(int number) {
+	    Set<Integer> numbers = new HashSet<Integer>();
+	    for(int i=3; i<number; i++)
+	    	if(i%3==0 || i%5==0){
+	    		numbers.add(i);
+	    	}
+	    int suma = 0;
+	    for(int value: numbers){
+	    	suma += value;
+	    }
+	    return suma;
+	}
 
 }
