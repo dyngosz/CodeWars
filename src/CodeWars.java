@@ -307,5 +307,19 @@ public class CodeWars {
 	    }
 	    return suma;
 	}
+	//given two speeds v1 ,v2, lead g (integer > 0) how long will it take B to catch A?
+	//result printed as [hours,minutes,seconds]
+	public static int[] race(int v1, int v2, int g) {
+        if(v1>=v2)
+          return null;
+        double time = ((double) g)/(v2-v1)*3600;
+        int hours = (int) time / 3600;
+        int remainder = (int) time - hours * 3600;
+        int mins = remainder / 60;
+        remainder = remainder - mins * 60;
+        int secs = remainder;
+        int[] ints = {hours , mins , secs};
+        return ints;
+	}
 
 }
