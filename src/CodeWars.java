@@ -15,7 +15,7 @@ public class CodeWars {
 		return builder.toString();
 	}
 
-	// Getting the middle word in a string 
+	// Getting the middle word in a string
 	public static String getMiddle(String word) {
 		if (word.length() == 1)
 			return word.toString();
@@ -292,34 +292,61 @@ public class CodeWars {
 		Arrays.sort(list);
 		return list[list.length - 1];
 	}
-	
-	
+
 	// get sum of multiplies of 3 and 5 in a number
 	public static int divisibleByThreeOrFive(int number) {
-	    Set<Integer> numbers = new HashSet<Integer>();
-	    for(int i=3; i<number; i++)
-	    	if(i%3==0 || i%5==0){
-	    		numbers.add(i);
-	    	}
-	    int suma = 0;
-	    for(int value: numbers){
-	    	suma += value;
-	    }
-	    return suma;
+		Set<Integer> numbers = new HashSet<Integer>();
+		for (int i = 3; i < number; i++)
+			if (i % 3 == 0 || i % 5 == 0) {
+				numbers.add(i);
+			}
+		int suma = 0;
+		for (int value : numbers) {
+			suma += value;
+		}
+		return suma;
 	}
-	//given two speeds v1 ,v2, lead g (integer > 0) how long will it take B to catch A?
-	//result printed as [hours,minutes,seconds]
+
+	// given two speeds v1 ,v2, lead g (integer > 0) how long will it take B to
+	// catch A?
+	// result printed as [hours,minutes,seconds]
 	public static int[] race(int v1, int v2, int g) {
-        if(v1>=v2)
-          return null;
-        double time = ((double) g)/(v2-v1)*3600;
-        int hours = (int) time / 3600;
-        int remainder = (int) time - hours * 3600;
-        int mins = remainder / 60;
-        remainder = remainder - mins * 60;
-        int secs = remainder;
-        int[] ints = {hours , mins , secs};
-        return ints;
+		if (v1 >= v2)
+			return null;
+		double time = ((double) g) / (v2 - v1) * 3600;
+		int hours = (int) time / 3600;
+		int remainder = (int) time - hours * 3600;
+		int mins = remainder / 60;
+		remainder = remainder - mins * 60;
+		int secs = remainder;
+		int[] ints = { hours, mins, secs };
+		return ints;
+	}
+
+	// You are given an array (which will have a length of at least 3, but could
+	// be very large) containing integers.
+	// The array is either entirely comprised of odd integers or entirely
+	// comprised of
+	// even integers except for a single integer N.
+	// Write a method that takes the array as an argument and returns N.
+
+	static int parityOutlier;
+
+	public static int find(int[] integers) {
+		if (Math.abs(integers[0] % 2) + Math.abs(integers[1] % 2) + Math.abs(integers[2] % 2) >= 2) {
+			parityOutlier = integers[0];
+			for (int i = 1; i < integers.length; i++) {
+				if (Math.abs(integers[i] % 2) == 0)
+					parityOutlier = integers[i];
+			}
+		} else {
+			parityOutlier = integers[0];
+			for (int i = 1; i < integers.length; i++) {
+				if (Math.abs(integers[i] % 2) == 1)
+					parityOutlier = integers[i];
+			}
+		}
+		return parityOutlier;
 	}
 
 }
