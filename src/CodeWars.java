@@ -349,4 +349,32 @@ public class CodeWars {
 		return parityOutlier;
 	}
 
+	
+//	In this little assignment you are given a string of space separated numbers, 
+//	and have to return the highest and lowest number.
+	public static String HighAndLow(String numbers) {
+	    String[] stringsTable = numbers.split(" ");
+	    int[] integersTable = new int[stringsTable.length];
+	    for(int i=0; i<integersTable.length; i++){
+	      integersTable[i] = Integer.parseInt(stringsTable[i]);
+	    }
+	    Arrays.sort(integersTable);
+	    System.out.println(Arrays.toString(integersTable));
+	    
+	    return integersTable[integersTable.length-1] + " " + integersTable[0];
+	  }
+
+//	Complete the method/function so that it converts 
+//	dash/underscore delimited words into camel casing. 
+//	The first word within the output should be capitalized 
+//	only if the original word was capitalized.
+	static String toCamelCase(String s) {
+		String[] stringTable = s.split("_|-");
+		StringBuilder sb = new StringBuilder();
+		sb.append(stringTable[0]);
+		for (int i = 1; i < stringTable.length; i++) {
+			sb.append(stringTable[i].substring(0, 1).toUpperCase() + stringTable[i].substring(1));
+		}
+		return sb.toString();
+	}
 }
